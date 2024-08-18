@@ -10,8 +10,4 @@ Roc is a modern, fast, and safe programming language designed for building relia
 - **Clean Syntax**: Roc's syntax is straightforward and easy to read, drawing inspiration from modern functional languages while stripping away unnecessary complexity.
 - **Interoperability**: Roc is built to work well with other languages, making it easier to integrate into existing projects.
 
-## History and Creators
-
-Roc was created by Richard Feldman, a developer with a strong background in the Elm language. Feldman aimed to bring the benefits of functional programming, such as safety and simplicity, to a broader audience, while also addressing the limitations he observed in existing languages. Roc has grown through a community-driven development process, with contributions from developers who share a passion for clean, reliable software.
-
 For more details, visit [roc-lang.org](https://roc-lang.org).

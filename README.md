@@ -1,34 +1,43 @@
 # Exercism Roc Track
 
-Exercism Exercises in Roc
+[![configlet](https://github.com/exercism/roc/workflows/configlet/badge.svg)](https://github.com/exercism/roc/actions?query=workflow%3Aconfiglet) [![tests](https://github.com/exercism/roc/workflows/test/badge.svg)](https://github.com/exercism/roc/actions?query=workflow%3Atest)
 
-## Setup
+Exercism exercises in Roc.
 
-You'll need [install latest Roc version](https://www.roc-lang.org/install), that's all. You may also want to [install the Exercism CLI](https://exercism.org/cli-walkthrough) if you want to download the exercises and submit your solutions easily.
+## Testing
 
-You can test that Roc is properly installed by executing `roc version` in a terminal. If you also installed the Exercism CLI, then run `exercism version` to ensure that it's properly installed too.
+To test all exercises, run `./bin/verify-exercises`.
+This command will iterate over all exercises and check to see if their exemplar/example implementation passes all the tests.
 
-## Exercise Layout
+To test a single exercise, run `./bin/verify-exercises <exercise-slug>`.
 
-All the exercises live in the `exercises` directory. It has two subdirectories:
+### Track linting
 
-- `concept` contains exercises that explain the core concepts of the language.
-- `practice` contains all the practice exercises, including the very first `hello-world` exercise.
+[`configlet`](https://exercism.org/docs/building/configlet) is an Exercism-wide tool for working with tracks. You can download it by running:
 
-Each exercise lives in its own subdirectory, such as `hello-world`.
+```shell
+$ ./bin/fetch-configlet
+```
 
-In each exercise directory, you will find:
+Run its [`lint` command](https://exercism.org/docs/building/configlet/lint) to verify if all exercises have all the necessary files and if config files are correct:
 
-- a Roc module, such as `HelloWorld.roc`. In Roc, module names use PascalCase (i.e., each word starts with a capital letter).
-- a test suite, such as `hello-world-test.roc`. Roc apps and test suites use kebab-case (i.e., just lowercase letters and `-`)
-- an example solution, `.meta/Example.roc`
+```shell
+$ ./bin/configlet lint
 
-## Solving an exercise
+The lint command is under development.
+Please re-run this command regularly to see if your track passes the latest linting rules.
 
-Read the exercise's instructions, and edit the exercise's Roc module to solve the exercise. For example, to solve the `hello-world` exercise you will want to edit `HelloWorld.roc` and ensure that the `hello` function returns `"Hello, World!"`.
-
-## Running the Tests
-
-The Roc language comes with integrated test tools. To run the tests, you just need to open a terminal, go to the exercise's directory, and run the command `roc test <name>-test.roc`. For example, execute `roc test hello-world-test.roc` if you're testing your `hello-world` solution.
-
-We hope you'll enjoy the exercises and fall in love with Roc!
+Basic linting finished successfully:
+- config.json exists and is valid JSON
+- config.json has these valid fields:
+    language, slug, active, blurb, version, status, online_editor, key_features, tags
+- Every concept has the required .md files
+- Every concept has a valid links.json file
+- Every concept has a valid .meta/config.json file
+- Every concept exercise has the required .md files
+- Every concept exercise has a valid .meta/config.json file
+- Every practice exercise has the required .md files
+- Every practice exercise has a valid .meta/config.json file
+- Required track docs are present
+- Required shared exercise docs are present
+```
